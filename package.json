@@ -10,7 +10,7 @@
     "build:eleventy": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy",
     "build:tinacms": "tinacms build",
     "dev": "rimraf public && tinacms dev -c \"npm-run-all --parallel dev:*\"",
-    "build": "NODE_ENV=production npm-run-all clean build:tinacms build:eleventy build:tailwind"
+    "build": "npm-run-all clean build:tinacms build:eleventy build:tailwind"
   },
   "repository": {
     "type": "git",
