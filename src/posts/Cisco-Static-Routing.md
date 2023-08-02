@@ -6,7 +6,7 @@ permalink: jaringan/cisco-static-routing.html
 date: 2023-08-01T17:00:00.000Z
 layout: post
 tags: posts
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 ---
 
 Loretm
