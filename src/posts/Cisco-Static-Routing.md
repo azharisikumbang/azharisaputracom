@@ -1,12 +1,12 @@
 ---
-title: 'Cisco: Static Routing'
+title: 'Cisco: Static Routing 2'
 description: test
 category: jaringan
 permalink: jaringan/cisco-static-routing.html
 date: 2023-08-01T17:00:00.000Z
 layout: post
 tags: posts
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 Loretm
