@@ -1,0 +1,14 @@
+{% for post in postslist | reverse %}
+<div class="bg-gray-600 p-4 rounded-lg border border-gray-500">
+  <div class="text-sm italic flex justify-between">
+    <a class="hover:underline cursor-pointer" href="{{ post.data.category_url }}">#{{ post.data.category }}</a>
+    <span class="text-gray-400">{{ post.date | tanggalIndo }}</span>
+  </div>
+  <h3 class="text-xl py-2">
+    <a class="hover:underline cursor-pointer" href="{{ post.url }}">
+      {{ post.data.title }}
+    </a>
+  </h3>
+  <p class="text-gray-200 text-sm">{{ post.data.description }}</p>
+</div>
+{% endfor %}

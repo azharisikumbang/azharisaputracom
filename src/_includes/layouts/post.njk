@@ -1,0 +1,29 @@
+---
+layout: base
+---
+
+<article class="mx-auto lg:max-w-5xl">
+	<div class="text-center py-12">
+		<h1 class="text-4xl py-2">{{ title  }}</h1>
+		<div class="italic">
+			<a class="hover:underline cursor-pointer" href="{{ category_url }}">#{{ category }}</a>
+			•
+			<span class="text-gray-400">ditulis {{ date | tanggalIndo }}</span>
+		</div>
+	</div>
+	<div class="gap-4">
+		<div class="lg:col-span-2 bg-gray-600 p-4 rounded-lg border border-gray-500 mb-4" id="post">
+			{{ content | safe }}
+		</div>
+		{# <div class="hidden">
+			<div class="bg-gray-600 p-4 rounded-lg border border-gray-500">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+			</div>
+		</div> #}
+	</div>
+</article>

@@ -1,0 +1,13 @@
+---
+layout: base
+title: Home
+---
+<div>
+  <h3 class="font-bold text-2xl mb-4">.Eksplorasi</h3>
+  <div class="grid lg:grid-cols-4 gap-4">
+    {% set postslist = collections.posts %}
+    {% set postslistCounter = postsCount %}
+    {% include "layouts/postslist.njk" %}
+  </div>
+</div>
+
