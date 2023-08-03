@@ -9,7 +9,7 @@ permalink: kode/symfony-handling-exception-pada-api.html
 layout: post
 ---
 
-Salah satu hal yang paling penting pada saat membangun aplikasi adalah bagaimana cara menghandle exception-nya. Sedikit informasi exception secara singkat adalah bagian dari program yang kita ingin berikan perlakukan khusus di situasi khusus pula. Kondisi ini mirip error, tapi bukan error hanya tidak sesuai dengan ekspektasi kita. Jadi kita perlu menghandle situasi seperti ini (secara istilah disebut [_handling exception_](https://en.wikipedia.org/wiki/Exception_handling)).
+Exception secara singkat adalah bagian dari program yang kita ingin berikan perlakukan khusus di situasi khusus pula. Kondisi ini mirip error, tapi bukan error hanya tidak sesuai dengan ekspektasi kita. Jadi kita perlu menghandle situasi seperti ini (secara istilah disebut [_handling exception_](https://en.wikipedia.org/wiki/Exception_handling)).
 
 Khusus untuk tulisan ini studi kasus yang dilakukan adalah handling exception pada API (Application Programming Interface) dengan menggunakan PHP sebagai bahasa dan Symfony sebagai framework. Sementara untuk exception yang akan kita handle satu saja sebagai contoh, meski pada prakteknya ada banyak exception yang harus dihandle, yakni Bad Request Exception.
 
@@ -50,9 +50,9 @@ class ApiProblemResponse
 
     public function __construct($errors, $code, $message)
     {
-        $this-&gt;errors = $errors; 
-        $this-&gt;code = $code; 
-        $this-&gt;message = $message; 
+        $this->errors = $errors; 
+        $this->code = $code; 
+        $this->message = $message; 
     }
 }
 ```
@@ -123,29 +123,29 @@ class ApiExceptionListener
     public function onKernelException(ExceptionEvent $event) 
     {
 
-        if (!$event-&gt;getThrowable() instanceof ApiExceptionInterface) {
+        if (!$event->getThrowable() instanceof ApiExceptionInterface) {
             return;
         }
 
-        $exception = $event-&gt;getThrowable();
+        $exception = $event->getThrowable();
 
         $response = new JsonResponse(); 
-        $response-&gt;setStatusCode($exception-&gt;getStatusCode());
+        $response->setStatusCode($exception->getStatusCode());
 
-        $content = $this-&gt;createApiResponse($exception);
-        $response-&gt;setContent(
+        $content = $this->createApiResponse($exception);
+        $response->setContent(
             json_encode($content)
         );
 
-        $event-&gt;setResponse($response);
+        $event->setResponse($response);
     }
 
     private function createApiResponse(\Throwable $exception)
     {
         return new ApiProblemResponse(
-            $exception-&gt;getMessage(), 
-            $exception-&gt;getStatusCode(), 
-            Response::$statusTexts[$exception-&gt;getStatusCode()]
+            $exception->getMessage(), 
+            $exception->getStatusCode(), 
+            Response::$statusTexts[$exception->getStatusCode()]
         );
     }
 }
@@ -190,14 +190,14 @@ class AgeController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $age = $request-&gt;toArray()["age"];
+        $age = $request->toArray()["age"];
 
-        if ($age &gt;= 50) {
+        if ($age >= 50) {
             throw new AgeInvalidException(); // di-throw jika kondisi tidak meenuhi
         }
 
-        return $this-&gt;json([
-            "age" =&gt; $age
+        return $this->json([
+            "age" => $age
         ]);
     }
 }
@@ -238,7 +238,7 @@ Content-Length: 86
 {"code":400,"message":"Bad Request","errors":["Usia melebihi batas yang ditentukan."]}
 ```
 
-Jika kita lihat payload response yang kita dapatkan sudah seperti yang kita inginkan, dimana setiap ada request `age` yang melebihi kriteria (&gt;50) maka akan exception akan ditampilkan beserta struktur json response nya.
+Jika kita lihat payload response yang kita dapatkan sudah seperti yang kita inginkan, dimana setiap ada request `age` yang melebihi kriteria (>50) maka akan exception akan ditampilkan beserta struktur json response nya.
 
 ```json
 {

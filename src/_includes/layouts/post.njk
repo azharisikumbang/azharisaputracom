@@ -3,16 +3,16 @@ layout: base
 ---
 
 <article class="mx-auto lg:max-w-5xl">
-	<div class="text-center py-12">
-		<h1 class="text-4xl py-2">{{ title  }}</h1>
-		<div class="italic">
+	<div class="text-center pb-8 lg:py-12">
+		<h1 class="text-2xl pb-2 lg:text-4xl">{{ title  }}</h1>
+		<div class="italic text-sm">
 			<a class="hover:underline cursor-pointer" href="{{ category_url }}">#{{ category }}</a>
 			•
 			<span class="text-gray-400">ditulis {{ date | tanggalIndo }}</span>
 		</div>
 	</div>
 	<div class="gap-4">
-		<div class="lg:col-span-2 bg-gray-600 p-4 rounded-lg border border-gray-500 mb-4" id="post">
+		<div class="text-base lg:col-span-2 bg-gray-600 p-4 rounded lg:rounded-lg border border-gray-500 mb-4" id="post">
 			{{ content | safe }}
 		</div>
 		{# <div class="hidden">
