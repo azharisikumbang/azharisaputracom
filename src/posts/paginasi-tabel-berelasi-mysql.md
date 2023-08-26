@@ -1,6 +1,6 @@
 ---
 title: "MySQL : Bagaimana Paginasi Dalam Tabel Bereleasi"
-description: "Paginasi (Pagination) akan sering ditemui ketika melakukan pengambilan data dari sebuah basis data. Dalam Object Oriented Programming, terkhusus penggunaan Entity (dto), tabel berelasi yang dikonversi ke entity berpotensi memunculkan data dengan paginasi yang kurang tepat."
+description: "Dalam Object Oriented Programming, terkhusus penggunaan Entity (dto), tabel berelasi yang dikonversi ke entity berpotensi memunculkan data dengan paginasi yang kurang tepat."
 date: 2023-08-26
 tags: posts
 category: kode
