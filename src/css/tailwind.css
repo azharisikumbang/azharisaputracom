@@ -3,3 +3,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+#post ol li, 
+#post ul li {
+	margin-bottom: 18px;
+}
